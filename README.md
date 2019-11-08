@@ -27,4 +27,4 @@ Boilerplate for MVC app dashboard using [Chart.js](https://www.chartjs.org/).
 ```
 
 ## Adding Charts 
-If you want to add new charts, replace the `<canvas>` and `<script>` tags with charts from chartsjs.org or using [Tobias Ahlin's](https://tobiasahlin.com/blog/) blog to experiment with different chart samples.
+If you want to add new charts, replace the `<canvas>` and `<script>` tags with charts from chartsjs.org or using [Tobias Ahlin's](https://tobiasahlin.com/blog/chartjs-charts-to-get-you-started/) blog to experiment with different chart samples.
