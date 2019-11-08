@@ -25,4 +25,3 @@ Boilerplate for MVC app dashboard using [Chart.js](https://www.chartjs.org/).
                         ...
 
 ```
-3. 
