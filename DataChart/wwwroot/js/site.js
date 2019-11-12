@@ -4,13 +4,15 @@
 // Write your JavaScript code.
 
 // Bar chart
+
+
 new Chart(document.getElementById("bar-chart"), {
     type: 'bar',
     data: {
         labels: ["1-5min", "5-10min", "10-20min", "30-40min", "40-60min", "60-90min", "90-120min", "2-3h", "4-6h", ">6h"],
         datasets: [
             {
-                label: "Population (millions)",
+                label: "Visitor Durations",
                 backgroundColor: "#3e95cd",
                 data: [200, 170, 90, 100, 50, 40, 30, 40, 50, 60]
             }
@@ -54,7 +56,7 @@ new Chart(document.getElementById("radar-chart"), {
     options: {
         title: {
             display: true,
-            text: 'Distribution in % of world population'
+            text: 'Visitors per zone'
         }
     }
 });
@@ -78,4 +80,57 @@ new Chart(document.getElementById("doughnut-chart"), {
             text: 'Returning Visitors'
         }
     }
+});
+
+
+//calendar heatmap
+$(document).ready(function () {
+    var selectedDomain;
+    var selectedSubDomain;
+    $("#selDomain").change(function () {
+        selectedDomain = $(this).find(':selected').val();
+    });
+    $("#selSubDomain").change(function () {
+        selectedSubDomain = $(this).find(':selected').val();
+        //empty called to clear earlier displayed heatmap.  
+        $("#cal-heatmap").empty();
+        //Display Heatmap based domain and subdomain selected  
+        loadHeatMap(selectedDomain, selectedSubDomain);
+    });
+});
+var cal = new CalHeatMap();
+cal.init({
+    domain: "month",
+    subDomain: "x_day",
+    cellSize: 50,
+    itemName: ["service ticket", "service tickets"],
+    data: {
+
+    },
+    subDomainTextFormat: "%d",
+    range: 1,
+    displayLegend: true,
+    legendColors: {
+        min: "#efefef",
+        max: "steelblue",
+        empty: "white"
+        // Will use the CSS for the missing keys
+    },
+    legendVerticalPosition: "top",
+    legendMargin: [0, 0, 10, 0],
+    label: {
+        position: "right",
+        width: 46,
+        rotate: "right",
+        align: "right"
+    },
+   
+    domainMargin: 0,
+    animationDuration: 800,
+    domainDynamicDimension: false,
+    scale: [10, 20, 80],
+    previousSelector: "#heatmap-previous",
+    nextSelector: "#heatmap-next",
+    tooltip: true
+
 });
